@@ -20,7 +20,7 @@
               },
               "type": {
                 "type": "string",
-                "enum": ["MCQ", "Multiple Correct", "True/False", "Open-Ended"],
+                "enum": ["MCQ", "Multiple Correct", "True/False"],
                 "description": "Type of the question"
               },
               "options": {
@@ -43,15 +43,7 @@
                     "items": { "type": "integer" },
                     "description": "For Multiple Correct: indices of correct options"
                   },
-                  { "type": "boolean", "description": "For True/False" },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "instructions": { "type": "string" }
-                    },
-                    "required": ["instructions"],
-                    "description": "For Open-Ended: instructions for grading"
-                  }
+                  { "type": "boolean", "description": "For True/False" }
                 ]
               }
             },
