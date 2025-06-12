@@ -1,0 +1,65 @@
+[
+  {
+    "name": "generate_quiz",
+    "description": "Generate a quiz as a JSON array of structured question objects.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string",
+                "description": "A unique string ID like 'q1', 'q2', etc."
+              },
+              "question": {
+                "type": "string",
+                "description": "The question text"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["MCQ", "Multiple Correct", "True/False", "Open-Ended"],
+                "description": "Type of the question"
+              },
+              "options": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "List of options for MCQ, Multiple Correct, and True/False"
+              },
+              "marks": {
+                "type": "integer",
+                "description": "Marks assigned to the question"
+              },
+              "correct": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "description": "For MCQ: index of correct option"
+                  },
+                  {
+                    "type": "array",
+                    "items": { "type": "integer" },
+                    "description": "For Multiple Correct: indices of correct options"
+                  },
+                  { "type": "boolean", "description": "For True/False" },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "instructions": { "type": "string" }
+                    },
+                    "required": ["instructions"],
+                    "description": "For Open-Ended: instructions for grading"
+                  }
+                ]
+              }
+            },
+            "required": ["_id", "question", "type", "marks", "correct"]
+          }
+        }
+      },
+      "required": ["questions"]
+    }
+  }
+]
