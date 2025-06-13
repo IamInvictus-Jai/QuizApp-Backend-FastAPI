@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Quiz App"
     VERSION: str = "0.1.1"
 
+    # Huggingface API
+    HF_KEY:str = Field(..., env="HF_KEY")
+
     # LLM Configuration
     GPT_MODEL:str = Field(default='gpt-3.5-turbo-1106', env="GPT_MODEL")
     OPENAI_API_KEY:str = Field(..., env="OPENAI_API_KEY")

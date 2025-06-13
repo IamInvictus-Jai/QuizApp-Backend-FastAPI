@@ -1,0 +1,152 @@
+[2025-06-13 12:53:09] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:53:11] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:54:20] [INFO] globalExceptionHandlers.py:dispatch:21 - Incoming request: GET http://127.0.0.1:8000/
+[2025-06-13 12:54:20] [INFO] globalExceptionHandlers.py:dispatch:26 - Request completed in 0.03s with status 200
+[2025-06-13 12:54:21] [INFO] globalExceptionHandlers.py:dispatch:21 - Incoming request: GET http://127.0.0.1:8000/favicon.ico
+[2025-06-13 12:54:22] [INFO] globalExceptionHandlers.py:dispatch:26 - Request completed in 0.02s with status 404
+[2025-06-13 12:54:54] [INFO] globalExceptionHandlers.py:dispatch:21 - Incoming request: POST http://127.0.0.1:8000/api/v1/notes/create
+[2025-06-13 12:54:55] [ERROR] audioTranscriber.py:transcribe_audio:47 - Audio Transcription Request failed with status code: 401
+[2025-06-13 12:54:55] [ERROR] audioTranscriber.py:transcribe_audio:56 - Failed to transcribe audio: Audio Transcription Request failed with status code: 401
+[2025-06-13 12:54:55] [ERROR] globalExceptionHandlers.py:dispatch:48 - Unhandled exception during request
+Traceback (most recent call last):
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\app\middlewares\globalExceptionHandlers.py", line 23, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\fastapi\routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'title'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'description'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'audio'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'pdf'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'notes'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+
+[2025-06-13 12:55:45] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:55:45] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:56:18] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:56:18] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:56:29] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:56:29] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:57:13] [INFO] globalExceptionHandlers.py:dispatch:21 - Incoming request: POST http://127.0.0.1:8000/api/v1/notes/create
+[2025-06-13 12:57:13] [ERROR] audioTranscriber.py:transcribe_audio:48 - Audio Transcription Request failed with status code: 401
+[2025-06-13 12:57:13] [ERROR] audioTranscriber.py:transcribe_audio:57 - Failed to transcribe audio: Audio Transcription Request failed with status code: 401
+[2025-06-13 12:57:13] [ERROR] globalExceptionHandlers.py:dispatch:48 - Unhandled exception during request
+Traceback (most recent call last):
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\app\middlewares\globalExceptionHandlers.py", line 23, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\fastapi\routing.py", line 327, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python Projects\Dalovinium\Quiz App Backend\venv\Lib\site-packages\fastapi\routing.py", line 176, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'title'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'description'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'audio'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'pdf'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+  {'type': 'missing', 'loc': ('response', 'notes'), 'msg': 'Field required', 'input': HTTPException(status_code=503, detail='Failed to transcribe audio. Please try again later.')}
+
+[2025-06-13 12:58:22] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:58:22] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:58:59] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:59:00] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:59:41] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:59:42] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 12:59:46] [INFO] main.py:init_app:16 - Initializing container and resources...
+[2025-06-13 12:59:46] [INFO] main.py:init_app:31 - Container wired and resources initialized
+
+
+[2025-06-13 13:00:03] [INFO] globalExceptionHandlers.py:dispatch:21 - Incoming request: POST http://127.0.0.1:8000/api/v1/notes/create
+[2025-06-13 13:00:12] [INFO] globalExceptionHandlers.py:dispatch:26 - Request completed in 9.15s with status 201

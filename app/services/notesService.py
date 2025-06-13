@@ -58,4 +58,3 @@ class NotesService:
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
                 detail="Failed to extract text from PDF. Please try again later."
             )
-        
